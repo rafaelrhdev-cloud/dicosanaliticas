@@ -1,0 +1,21 @@
+CÓMO AGREGAR TUS FOTOS A LA GALERÍA
+====================================
+
+Ahora mismo la galería muestra recuadros de diseño (placeholders) porque
+todavía no hay fotos reales. En cuanto subas tus fotos a esta carpeta con
+estos nombres EXACTOS, aparecerán automáticamente en el sitio — no hay que
+tocar ni una línea de código:
+
+  foto-1.jpg   -> Exhibidor principal   (foto grande, formato horizontal)
+  foto-2.jpg   -> Área de cortes
+  foto-3.jpg   -> Cadena de frío / cámara de refrigeración
+  foto-4.jpg   -> Fachada del local
+  foto-5.jpg   -> Equipo / carniceros   (foto grande, formato horizontal)
+  foto-6.jpg   -> Cortes del día
+
+Recomendaciones:
+- Formato JPG, buena iluminación, sin marcas de agua.
+- Ideal 1600x1200px o más grande; el sitio las recorta automáticamente
+  al tamaño del recuadro (no se deforman).
+- Si quieres más de 6 fotos o cambiar el orden, dile a Claude y se ajusta
+  el HTML fácilmente.

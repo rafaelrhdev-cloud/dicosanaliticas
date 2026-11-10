@@ -1,0 +1,36 @@
+/* ===================== MENSAJES (WhatsApp) ===================== */
+#panel-mensajes{--an-red:#A6182B;--an-ink:#1B1714;--an-ink2:#5C5650;--an-ink3:#8A837B;--an-line:#E8DFD0;--an-soft:#F6F1E8;--an-good:#17713A;--an-good-bg:#E4F4EA;--an-bad:#B42318;--an-bad-bg:#FCE9E7;}
+.ms-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+.ms-bar .an-seg button i{font-style:normal;font:700 .68rem var(--ff-mono);margin-left:6px;opacity:.7;}
+.ms-search{flex:1 1 220px;max-width:340px;border:1px solid var(--an-line);border-radius:8px;padding:9px 12px;font:inherit;font-size:.86rem;background:#fff;}
+.ms-search:focus{outline:none;border-color:var(--an-ink);}
+.ms-bar .an-btn{margin-left:auto;}
+.ms-list{display:grid;gap:12px;}
+.ms-card{background:#fff;border:1px solid var(--an-line);border-radius:12px;padding:18px 20px;display:grid;gap:12px;border-left:4px solid var(--an-line);}
+.ms-card.nuevo{border-left-color:var(--an-red);}
+.ms-card.seguimiento{border-left-color:#C98A12;}
+.ms-card.cerrado{border-left-color:#2F9E62;opacity:.92;}
+.ms-top{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:baseline;}
+.ms-top h3{font-family:var(--ff-display);font-size:1.12rem;margin:0;color:var(--an-ink);}
+.ms-phone{font-family:var(--ff-mono);font-size:.9rem;color:var(--an-ink);}
+.ms-when{margin-left:auto;font-size:.78rem;color:var(--an-ink2);}
+.ms-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.ms-tag{font-size:.74rem;background:var(--an-soft);color:var(--an-ink2);padding:3px 10px;border-radius:999px;}
+.ms-tag.new{background:#F8E3E5;color:var(--an-red);font-weight:700;}
+.ms-msg{background:var(--an-soft);border-radius:8px;padding:12px 14px;font-size:.92rem;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:var(--an-ink);}
+.ms-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.ms-actions a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-weight:600;font-size:.82rem;border:1px solid var(--an-ink);color:var(--an-ink);text-decoration:none;background:#fff;}
+.ms-actions a:hover{background:var(--an-ink);color:#fff;}
+.ms-actions a.wa{background:#1E8E5A;border-color:#1E8E5A;color:#fff;}
+.ms-actions a.wa:hover{background:#17713A;border-color:#17713A;}
+.ms-edit{display:grid;grid-template-columns:200px 1fr;gap:10px;align-items:start;}
+.ms-edit select,.ms-edit textarea{border:1px solid var(--an-line);border-radius:8px;padding:9px 10px;font:inherit;font-size:.86rem;background:#fff;color:var(--an-ink);width:100%;box-sizing:border-box;}
+.ms-edit textarea{resize:vertical;min-height:40px;}
+.ms-edit select:focus,.ms-edit textarea:focus{outline:none;border-color:var(--an-ink);}
+.ms-foot{font-size:.76rem;color:var(--an-ink2);display:flex;gap:14px;flex-wrap:wrap;}
+.ms-foot b.ok{color:var(--an-good);}.ms-foot b.pend{color:#9A6700;}
+.ms-saved{color:var(--an-good);opacity:0;transition:opacity .3s;}.ms-saved.on{opacity:1;}
+.ms-note{background:#EEF3FA;border:1px solid #C9D8EE;color:#1F3B63;border-radius:10px;padding:12px 16px;font-size:.84rem;margin-bottom:14px;line-height:1.5;}
+@media (max-width:700px){.ms-edit{grid-template-columns:1fr;}.ms-when{margin-left:0;width:100%;}.ms-bar .an-btn{margin-left:0;}.ms-card{padding:14px;}}
+
+.ms-tag.q{background:#1B1714;color:#fff;font-weight:700;}
