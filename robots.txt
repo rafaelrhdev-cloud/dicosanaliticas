@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /data/
+Disallow: /lib/
+
+Sitemap: https://midicosa.com.mx/sitemap.xml

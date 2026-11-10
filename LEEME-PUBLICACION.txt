@@ -1,0 +1,29 @@
+DICOSA — PUBLICAR EL SITIO Y LISTA DE SALIDA A PRODUCCIÓN
+=========================================================
+
+OPCIÓN A: SUBIR POR ARCHIVOS (la más simple)
+  Hostinger > Administrador de archivos > public_html > subir el contenido del zip (ver LEEME-INSTALACION.txt).
+
+OPCIÓN B: GIT + HOSTINGER (recomendada para actualizaciones)
+  GitHub Pages NO sirve: no ejecuta PHP. Hostinger sí puede traer el código desde GitHub.
+  1. Crea un repositorio PRIVADO en GitHub y sube el proyecto (el archivo .gitignore ya excluye data/ y las fotos).
+  2. Hostinger hPanel > Avanzado > Git: agrega el repositorio, rama main, carpeta public_html.
+  3. Activa el despliegue automático (webhook) para que cada cambio subido se publique solo.
+  4. LA PRIMERA VEZ sube a mano por el Administrador de archivos la carpeta data/ con sus archivos base
+     (site-data.json, branches.json, vacancies.json, credentials.php, mail-config.php). No se versionan a propósito.
+  5. Nunca guardes en Git contraseñas ni datos de candidatos. Si se subieron por error, cámbialas.
+
+LISTA DE SALIDA (marcar antes de entregar)
+  [ ] Dominio real confirmado y reemplazado (index.html, robots.txt, data/site-data.json "site_url").
+  [ ] SSL (HTTPS) activo en Hostinger y el sitio abre con candado.
+  [ ] Se cambió la contraseña de fábrica y se crearon los usuarios reales (Dueño, Administrador, RH, Marketing...).
+  [ ] Teléfonos, WhatsApp, horarios y direcciones revisados en Contacto y en cada Sucursal (con latitud/longitud).
+  [ ] Fotos reales cargadas en la Galería.
+  [ ] Correo de avisos probado (Ajustes > Enviar correo de prueba) y usuarios con "Avisarle por correo" marcado.
+  [ ] Solicitud de empleo de prueba enviada y recibida; después se borró de Bolsa de trabajo.
+  [ ] Datos de ejemplo de Analítica quitados (Analítica > Configuración).
+  [ ] Aviso de privacidad revisado (menciona CVs y medición anónima).
+  [ ] Sitio revisado en un celular real y en computadora.
+  [ ] Ficha de Google Business Profile por sucursal y sitio dado de alta en Search Console (LEEME-SEO.txt).
+  [ ] Respaldo inicial de data/ y assets/gallery/ guardado en un lugar privado.
+  [ ] Manual de uso entregado al dueño y al equipo.

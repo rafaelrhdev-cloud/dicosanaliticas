@@ -1,0 +1,47 @@
+ZONAS DE LOS VISITANTES (código postal, colonia, municipio)
+============================================================
+
+QUÉ ES
+Un menú nuevo del panel, «Zonas», aparte de «Analítica» (que no cambió).
+Muestra de qué municipio, código postal y colonia son quienes visitan la página.
+
+CÓMO SE OBTIENE EL DATO (siempre voluntario)
+1. Al entrar: el aviso de ubicación trae un campo "o, si prefieres: tu código postal".
+2. Si lo cierran: unos segundos después aparece una tarjeta pequeña flotante.
+3. Si también la cierran: queda una tarjeta en la sección Sucursales.
+Con el C.P. la página sugiere la sucursal que mejor les queda; pueden elegir su colonia (opcional).
+La persona queda recordada en su navegador (puede pulsar "Cambiar").
+
+CUÁNDO VUELVEN A APARECER LOS AVISOS
+- Ubicación: si el navegador ya tiene el permiso, se usa en silencio y no se muestra nada.
+  Si no lo tiene, el aviso vuelve a salir una vez por visita. Si la persona dice "Ahora no"
+  3 veces seguidas, descansa 7 días. Si el navegador la tiene bloqueada, no se puede pedir.
+- Código postal: mientras la persona no lo haya dado, la tarjeta flotante sale una vez por visita
+  (con la misma pausa de 7 días tras 3 rechazos) y la de Sucursales siempre está disponible.
+- Quien ya compartió su C.P. no vuelve a ver la invitación; al volver, su zona se vuelve a contar
+  sola una vez al día para que las gráficas reflejen a los visitantes recientes.
+
+QUÉ SE GUARDA
+Solo: fecha, código anónimo del navegador, C.P. y colonia (si la eligió). Nunca IP, nombre ni coordenadas.
+Archivos: data/zones/AAAA-MM.jsonl (carpeta privada). Se conservan los mismos días que la analítica.
+Cada persona cuenta una vez por C.P.; se respeta "No rastrear" y los filtros de Analítica.
+
+TAMBIÉN EN ANALÍTICA
+La tarjeta «¿Desde dónde nos visitan?» de Analítica trae un resumen con las colonias, códigos postales y municipios que más visitan
+(5 de cada uno) y un enlace «Ver todo en Zonas».
+
+QUÉ VE EL DUEÑO (menú Zonas)
+- Personas que compartieron zona, municipios, C.P., colonias y % de visitantes que compartió.
+- Resumen en palabras (p. ej. "9 C.P. juntan el 80 %").
+- Explorador: Municipios / Códigos postales / Colonias, con buscador, filtro por estado y detalle.
+- Embudo "¿Cuánta gente la usa?": vieron la invitación, compartieron, la dejaron para después, no quisieron.
+- Excel (CSV) e impresión/PDF. Datos de ejemplo para conocer el panel.
+- Lo ven Programador, Dueño, Administrador, Marketing y Solo lectura; configurar o borrar datos es de Dueño y Programador.
+
+APAGARLO
+Zonas > "Cómo se obtienen estos datos" > interruptor "Mostrar la invitación a los visitantes".
+"Borrar todos los datos de zonas" elimina lo guardado.
+
+NOTA HONESTA
+Es una muestra voluntaria: sirve para ver tendencias, no para contar a todos los visitantes.
+La base de códigos postales (SEPOMEX) está en lib/cp/ y funciona sin internet.

@@ -1,0 +1,22 @@
+SECCIÓN «NUESTROS CORTES»
+=========================
+- La figura dibujada de res y cerdo se quitó. Ahora es una imagen: assets/cortes-res.webp (y .jpg de respaldo).
+- Al lado están los botones de cada corte; al tocar uno cambia: nombre, tipo, descripción, «Ideal para» y «Por qué elegirlo».
+- Los textos de cada corte están en index.html (busca class="cut-chip"; atributos data-desc, data-uses, data-why).
+
+CÓMO CAMBIAR LA IMAGEN
+Reemplaza assets/cortes-res.jpg y assets/cortes-res.webp por la nueva (mismo nombre).
+Si cambias los cortes que muestra la imagen, edita también los botones en index.html.
+
+CERDO
+Ya está activo: assets/cortes-cerdo.webp y .jpg, con 13 cortes escritos en index.html.
+Las imágenes se prepararon para que su fondo se funda con el color de la página (#1B1714).
+Si cambias una imagen, usa un fondo oscuro parecido o pídeme que la vuelva a integrar.
+
+
+ACTUALIZACIÓN: IMÁGENES CON FONDO NEGRO
+- assets/cortes-res.* y assets/cortes-cerdo.* (1056x1008) son ahora las versiones con fondo negro limpio.
+  La página les difumina los bordes para que se integren con el fondo del sitio.
+- Los botones de corte coinciden con las etiquetas de cada imagen (res: Paleta, Codillo del pecho, Pezuñas;
+  cerdo: Cabecero de lomo, Careta, Jariotes, Papada, Codillo, Manos, etc.).
+- Para cambiar una imagen: reemplaza el .jpg y el .webp con el mismo nombre y mismo tamaño.

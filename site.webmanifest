@@ -1,0 +1,13 @@
+{
+  "name": "DICOSA — Carnicería y distribuidora de carnes",
+  "short_name": "DICOSA",
+  "lang": "es-MX",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAF6F0",
+  "theme_color": "#A6182B",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

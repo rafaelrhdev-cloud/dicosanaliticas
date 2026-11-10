@@ -1,0 +1,38 @@
+DICOSA — GUÍA DE SEO LOCAL (para salir primero en "carnicería San Juan del Río")
+=================================================================================
+
+LO QUE YA HACE EL SITIO (automático)
+- Título, descripción y datos estructurados (Schema.org: GroceryStore/WholesaleStore) con dirección, teléfono y horario.
+- Una página propia por sucursal: /sucursal/{clave}, con mapa, datos y "Carnicería en San Juan del Río" en título y texto.
+- sitemap.xml se actualiza solo al crear/editar sucursales. robots.txt bloquea /admin y /data.
+- Imágenes WebP/JPEG optimizadas, fuentes sin bloquear la carga, compresión y caché.
+- Vista previa bonita al compartir en WhatsApp/Facebook (og-image.jpg).
+
+LO QUE FALTA Y LO HACES TÚ (esto es lo que más pesa para salir primero)
+Seamos honestos: nadie puede GARANTIZAR el lugar #1. En búsquedas locales Google
+muestra primero el "mapa con 3 negocios" y ese lugar depende sobre todo de Google
+Business Profile, reseñas y cercanía, más que del sitio web. Haz esto, en orden:
+
+1. DOMINIO: el sitio asume https://midicosa.com.mx. Si el real es otro, reemplázalo en
+   index.html (canonical, og:url, JSON-LD), robots.txt (línea Sitemap) y en
+   data/site-data.json con  "site_url": "https://tudominio.com".
+   Activa SSL en Hostinger (el .htaccess redirige a HTTPS).
+2. GOOGLE BUSINESS PROFILE (gratis): crea una ficha POR SUCURSAL en business.google.com.
+   - Categoría principal: "Carnicería". Secundaria: "Distribuidor de carne" / "Tienda de comestibles".
+   - Mismo nombre, dirección y teléfono EXACTAMENTE como en el sitio (consistencia NAP).
+   - Horario real, 10+ fotos propias (fachada, mostrador, producto), sitio web = la página de esa sucursal
+     (https://tudominio.com/sucursal/clave).
+   - Verifícala (postal/llamada) y publica una novedad por semana.
+3. RESEÑAS: pide a tus clientes una reseña en Google (enlace corto desde el perfil, QR en el mostrador).
+   Responde todas. Meta: 30+ con 4.5★ o más.
+4. SEARCH CONSOLE: entra a search.google.com/search-console, agrega el dominio, envía
+   https://tudominio.com/sitemap.xml y pide indexar la página principal.
+5. Bing Places (bingplaces.com) y directorios locales: Facebook, Yelp, Páginas Amarillas/Sección Amarilla,
+   Cámara de comercio local. Mismos datos NAP en todos.
+6. Contenido: añade en el sitio tus cortes, precios de referencia y zona de entrega;
+   enlaza el sitio desde tus redes y de proveedores/clientes.
+7. Tiempo: el posicionamiento tarda semanas. Revisa Search Console cada mes.
+
+AL AGREGAR UNA SUCURSAL NUEVA
+Llena dirección completa con "San Juan del Río" (si aplica), teléfono y horario en el panel: la página
+/sucursal/clave y el sitemap se crean solos. Después crea su ficha de Google Business Profile.

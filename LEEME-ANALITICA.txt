@@ -1,0 +1,37 @@
+DICOSA — ANALÍTICA DEL SITIO
+============================
+Panel > "Analítica" (la ven Programador, Dueño, Administrador, Marketing y Solo lectura;
+Dueño y Programador pueden configurarla).
+
+QUÉ MIDE
+- Visitantes, visitas, tiempo en la página y comparación contra el periodo anterior.
+- Contactos: llamar, WhatsApp, cómo llegar y correo (por sucursal).
+- Sucursales más vistas, elegidas y contactadas; búsquedas en el buscador de sucursales.
+- Zonas: mapa de estados de México y ciudades (ubicación aproximada, ver Privacidad).
+- Cuándo nos visitan (día y hora), qué secciones se ven, de dónde llegan (Google, Maps, Facebook, directo...),
+  celular/computadora, navegador, nuevos vs recurrentes, cortes tocados, vacantes abiertas y solicitudes enviadas.
+- "En resumen": frases en lenguaje sencillo generadas solas. Botones Excel (CSV) y PDF (imprimir).
+
+PRIVACIDAD (todo queda en TU sitio)
+- Sin Google Analytics ni cookies de rastreo. No se guarda la IP, ni nombre, correo, teléfono o formularios.
+- Cada visitante es un código al azar guardado en su navegador.
+- La ciudad/estado se estima al momento con el servicio ipwho.is (se le envía la conexión del visitante, no se guarda).
+  Si NO quieres eso: Analítica > Configuración y privacidad > desactiva "Estimar ciudad y estado".
+  Si el sitio está detrás de Cloudflare se usa su ubicación gratis y no hace falta ningún servicio.
+- No cuenta robots, ni visitantes con "No rastrear" activado, ni a tu equipo mientras tenga la sesión del panel abierta.
+  PARA PROBAR el sitio y ver tus propias acciones: Analítica > Configuración y privacidad > activa "Contar mis propias visitas y acciones en este navegador" (cualquier persona con acceso puede). Desactívalo al terminar.
+  Nota: las secciones vistas se cuentan una vez por visita (una visita dura hasta 30 min sin actividad); los clics y búsquedas se cuentan siempre.
+- Historial: se conserva el tiempo que elijas (13 meses por defecto) y luego se borra solo.
+- Recomendado: menciona la medición anónima en el aviso de privacidad del sitio.
+
+PRIMEROS PASOS
+1. Sube TODO el sitio (incluye data/analytics/.htaccess, que protege los datos).
+2. Entra al panel > Analítica. Con "Cargar datos de ejemplo" (Configuración) puedes ver el tablero lleno para presentarlo;
+   se quitan con un clic ("Quitar datos de ejemplo") y NO se mezclan con datos reales una vez quitados.
+3. Para medir campañas usa enlaces con ?utm_source=facebook (o instagram, whatsapp, qr, correo...).
+4. Para no contar la oficina: Configuración > "Ignorar estas direcciones IP".
+
+ARCHIVOS
+ api/track.php (recibe visitas) · analytics.js (medidor del sitio) · lib/analytics.php (cálculos)
+ admin/analytics-api.php, admin/analytics.js, admin/analytics.css (tablero) · data/analytics/ (datos, privado)
+ Respaldo: copia la carpeta data/analytics/ (archivos AAAA-MM.jsonl, uno por mes).

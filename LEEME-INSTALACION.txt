@@ -1,0 +1,241 @@
+SITIO DICOSA + PANEL DE ADMINISTRACIÓN
+========================================
+
+CÓMO SUBIRLO A HOSTINGER (o cualquier hosting con cPanel + PHP)
+------------------------------------------------------------------
+1. Entra a cPanel > Administrador de archivos > public_html
+   (o la carpeta raíz de tu dominio).
+2. Sube TODOS los archivos y carpetas de este zip ahí, manteniendo
+   la misma estructura (que "admin/", "data/" y "assets/" queden
+   junto a "index.html", no dentro de otra carpeta).
+3. Entra a tu dominio normal: se debe ver la página.
+4. Entra a tudominio.com/admin/  para el panel de administración.
+
+Requisito: el hosting debe tener PHP habilitado (Hostinger lo trae
+por default) y la librería GD para procesar imágenes (también viene
+por default en el 99% de los hostings compartidos).
+
+
+ACCESO AL PANEL
+------------------------------------------------------------------
+URL:      tudominio.com/admin/
+Usuario:  admin
+Clave:    Dicosa2026!
+
+*** IMPORTANTE: cambia esta contraseña en cuanto entres la primera
+vez. Está en Ajustes > Cambiar contraseña, dentro del propio panel. ***
+
+
+QUÉ SE PUEDE EDITAR DESDE EL PANEL
+------------------------------------------------------------------
+- Contacto: teléfono, WhatsApp, correo, dirección, horario y el
+  enlace/mapa de Google Maps. Se actualiza automáticamente en el
+  encabezado, el pie de página y la sección de ubicación.
+- Galería: subir o reemplazar las 6 fotos del establecimiento
+  (arrastrar y soltar o hacer clic para elegir archivo). El cambio
+  se ve reflejado de inmediato en la página pública.
+- Bolsa de trabajo: revisar los candidatos que aplican desde la
+  página pública (nombre, contacto, puesto, mensaje, CV), cambiar
+  su estado (Recibido / Agendado / Rechazado / Contratado) y
+  descargar su CV. El contador rojo junto a "Bolsa de trabajo" en
+  el menú muestra cuántos candidatos nuevos hay sin revisar.
+- Vacantes: agregar, editar (nombre y descripción se guardan solos
+  al salir del campo), activar/desactivar, o eliminar los puestos
+  que aparecen como disponibles en la página pública. Solo las
+  vacantes marcadas como activas se muestran a los candidatos —
+  desactivar una vacante la oculta del sitio sin borrar su
+  historial de candidatos ya recibidos.
+- Ajustes: cambiar la contraseña de acceso al panel.
+
+
+CÓMO FUNCIONA (para quien dé mantenimiento después)
+------------------------------------------------------------------
+- data/site-data.json      datos de contacto. La página pública
+  (script.js) los lee automáticamente al cargar.
+- data/vacancies.json      lista de vacantes/puestos disponibles.
+  La página pública la lee directamente (igual que site-data.json)
+  para mostrar solo las vacantes activas en las etiquetas y en el
+  menú desplegable del formulario de empleo.
+- data/applications.json   lista de candidatos de la bolsa de
+  trabajo, con su estado.
+- data/cv-uploads/         CVs subidos por los candidatos. Esta
+  carpeta está bloqueada para acceso directo por navegador (tiene
+  su propio .htaccess) — los CVs solo se pueden ver desde el panel,
+  ya con sesión iniciada, a través de admin/download-cv.php.
+- data/credentials.php     usuario y hash de la contraseña del
+  panel. Es .php a propósito: si alguien lo abre desde el
+  navegador, el servidor lo EJECUTA en vez de mostrarlo, así que
+  nunca se expone la contraseña.
+- assets/gallery/foto-1.jpg ... foto-6.jpg son las fotos de la
+  galería. El panel las sobrescribe directamente.
+- api/submit-application.php recibe las solicitudes del formulario
+  público de empleo (sin necesidad de sesión, es un formulario
+  público, como cualquier formulario de contacto).
+- Todo el backend está en admin/*.php y api/*.php — no requiere
+  base de datos.
+
+
+NOTIFICACIONES POR CORREO CUANDO LLEGA UN CANDIDATO NUEVO
+------------------------------------------------------------------
+Para que funcione, hay que configurar data/mail-config.php:
+
+1. Entra a https://myaccount.google.com/security con la cuenta de
+   Gmail que va a ENVIAR los avisos (puede ser kusdarr2@gmail.com
+   mismo, o cualquier otra cuenta dedicada a esto).
+2. Activa la "Verificación en 2 pasos" si no la tienes activada
+   (Gmail no deja crear contraseñas de aplicación sin esto).
+3. Ve a https://myaccount.google.com/apppasswords y crea una nueva,
+   con el nombre que quieras (ej. "DICOSA Sitio Web"). Gmail te da
+   16 caracteres tipo "abcd efgh ijkl mnop".
+4. Abre data/mail-config.php y pega esos 16 caracteres (sin
+   espacios) en 'smtp_pass'. No uses tu contraseña normal de Gmail
+   ahí, solo la de aplicación.
+5. Entra al panel > Ajustes > "Enviar correo de prueba" para
+   confirmar que quedó bien configurado.
+
+Esto SÍ funciona probándolo en tu XAMPP local (no solo en el
+hosting final), porque se conecta directo al servidor de Gmail por
+internet — no depende de que tu computadora tenga un servidor de
+correo instalado.
+
+Si algún día el correo deja de enviarse (contraseña vencida,
+cambios de seguridad en la cuenta de Gmail, etc.), eso NUNCA hace
+que se pierda una solicitud de candidato — la solicitud siempre
+queda guardada primero, y el aviso por correo es un extra aparte.
+Cualquier error de envío se anota en data/mail-errors.log por si
+hay que revisarlo.
+
+
+PERMISOS DE CARPETAS (IMPORTANTE)
+------------------------------------------------------------------
+Para que el panel pueda guardar cambios, subir fotos, y para que el
+formulario de empleo pueda guardar CVs, el servidor necesita poder
+ESCRIBIR en estas carpetas:
+  - data/
+  - data/cv-uploads/
+  - assets/gallery/
+
+En Hostinger y la mayoría de hostings con cPanel esto ya funciona
+solo, sin que tengas que tocar nada. Si al guardar algo en el panel
+o al enviar el formulario de empleo aparece un error de "no se pudo
+guardar" o "permission denied", entra al Administrador de Archivos,
+clic derecho sobre esas carpetas → Permisos → y ponles 755 (o 775
+si con 755 no es suficiente).
+
+
+IMPORTANTE: NO abrir index.html con doble clic para probarlo
+------------------------------------------------------------------
+Si abres el archivo directo desde tu computadora (sin subirlo a un
+servidor), el panel y la carga automática de datos de contacto NO
+van a funcionar — eso es normal, es una limitación de los navegadores
+con archivos locales, no un error del sitio. Para probar todo el
+funcionamiento real (panel, login, guardado, fotos) el sitio debe
+estar en un servidor con PHP, aunque sea uno de prueba.
+
+
+SEGURIDAD — RECOMENDACIONES
+------------------------------------------------------------------
+- Cambia la contraseña por defecto de inmediato.
+- El panel usa sesiones PHP normales; para máxima seguridad, activa
+  HTTPS en tu hosting (Hostinger lo da gratis con Let's Encrypt) para
+  que la contraseña nunca viaje sin cifrar.
+- No compartas la URL del panel públicamente ni la indexes en Google
+  (no es necesario hacer nada extra para esto, no aparece en el menú
+  del sitio ni tiene enlaces desde la página pública).
+
+
+SUCURSALES
+- Panel > Sucursales: agregar, editar, activar/desactivar y eliminar.
+- Para el mapa: pega cualquier enlace de Google Maps (incluso el corto de "Compartir")
+  o escribe Latitud y Longitud (clic derecho sobre el lugar en Google Maps).
+- Sin coordenadas la sucursal se muestra, pero no entra en "la más cercana".
+- La sección "Ubicación y contacto" se eliminó; teléfono y correo siguen en el pie de página.
+
+
+==================================================================
+USUARIOS Y ROLES DEL PANEL
+==================================================================
+Primer acceso: el usuario y contraseña que ya usabas (por defecto
+admin / Dicosa2026!) se convierten automáticamente en el usuario
+"Programador". Entra y cambia esa contraseña cuanto antes.
+
+Roles (de mayor a menor):
+- Programador: todo, incluida la configuración técnica (correo de prueba)
+  y la administración de otros Programadores.
+- Dueño: administra usuarios (de Administrador hacia abajo), ve todo el
+  contenido y la bitácora de actividad. No ve ajustes técnicos.
+- Administrador: contacto, galería, sucursales (puede eliminar), vacantes;
+  ve candidatos.
+- Recursos humanos: vacantes y candidatos (ver CVs, cambiar estatus).
+- Editor: contacto, galería y sucursales (agregar/editar, sin eliminar).
+- Marketing: solo fotos de la galería (ve contacto y sucursales).
+- Solo lectura: consulta todo, no cambia nada.
+
+Crear usuarios: panel > Usuarios > "+ Nuevo usuario". Cada quien solo
+puede crear/editar roles por debajo del suyo (el Programador, todos).
+Nadie puede cambiarse su propio rol, desactivarse ni eliminarse.
+
+Avisos de nuevas solicitudes de empleo: marca "Recibe aviso por correo"
+en el usuario (RH, por ejemplo) y asegúrate de que tenga correo. Requiere
+la contraseña de aplicación de Gmail en data/mail-config.php.
+
+Seguridad: 5 intentos fallidos de acceso bloquean 10 minutos ese usuario
+desde esa IP. Todo cambio importante queda en la bitácora (data/audit.log).
+La carpeta data/ queda cerrada al público (solo se leen site-data,
+vacancies y branches .json). Al reemplazar archivos en el servidor,
+conserva tu carpeta data/ (users.json, branches.json, etc.).
+
+
+==================================================================
+ROLES DEL PANEL Y CLAVE FIJA DE SUCURSAL
+==================================================================
+QUIÉN ADMINISTRA
+- Programador, Dueño y Administrador: administran el sitio (contacto, galería,
+  sucursales, vacantes, candidatos). Solo Programador y Dueño ven la bitácora
+  y configuran la analítica; solo Programador toca lo técnico.
+- Recursos humanos: administra vacantes y candidatos.
+QUIÉN SOLO CONSULTA (no puede cambiar nada)
+- Marketing: ve galería, contacto, sucursales, analítica, zonas y mensajes.
+- Solo lectura: ve todo el contenido, candidatos y analítica.
+- Ya no existen los roles "Gerente de sucursal" ni "Editor". Si había cuentas
+  con esos roles, pasaron solas a "Solo lectura" (conservan su acceso para
+  consultar). Se pueden subir de rol desde Usuarios.
+
+CLAVE FIJA
+- Cada sucursal tiene una "clave fija" (ej. pedregoso) que se escribe al
+  crearla y NO se puede cambiar. Si hay error, se elimina la sucursal y se
+  crea de nuevo. La sucursal Central existente recibe la clave "central".
+- Las vacantes tienen sucursal ("General" = todas). En el sitio público se
+  muestra el nombre de la sucursal junto al puesto.
+- Al eliminar una sucursal, sus vacantes quedan inactivas y como "General".
+- Cada solicitud nueva guarda la sucursal de la vacante elegida.
+- Los avisos por correo de solicitudes nuevas llegan a quien tenga correo y
+  "Avisarle por correo" marcado.
+
+
+==================================================================
+CONTRASEÑA PROVISIONAL Y VERSIÓN DE TELÉFONO
+==================================================================
+- Quien entre con la contraseña de fábrica (Dicosa2026!), o con una
+  contraseña que le asignó otra persona al crearlo o restablecerlo, debe
+  cambiarla antes de usar el panel: solo ve "Ajustes" hasta que lo haga.
+  (Si ya tenías el panel instalado, el aviso aparece en tu próximo ingreso
+  si sigues usando la contraseña de fábrica.)
+- Panel en teléfono: barra superior con menú deslizable, formularios a
+  ancho completo, controles táctiles de 44 px y sin zoom automático en iPhone.
+- Sitio público en teléfono: menú de hamburguesa funcional (antes no abría),
+  sin desplazamiento horizontal, etiquetas de vacantes con sucursal ajustadas.
+
+
+SEGURIDAD, FOTOS Y SEO (nuevo)
+- Sube TODA la carpeta, incluido el archivo oculto .htaccess (raíz, lib/, data/, assets/gallery/) y .user.ini.
+  Sin .htaccess no funcionan las URLs /sucursal/clave, el sitemap.xml, el HTTPS forzado ni las cabeceras.
+- Fotos: al subir, el servidor las orienta, reduce (máx. ~1600px), comprime y genera WebP automáticamente.
+- Seguridad: CSRF en el panel, cierre por inactividad (60 min), límite de intentos de login y de solicitudes,
+  cookies seguras bajo HTTPS, carpetas internas bloqueadas por URL.
+- SEO: lee LEEME-SEO.txt (Google Business Profile, reseñas, Search Console, dominio).
+
+
+ANALÍTICA (nuevo)
+- Nuevo panel "Analítica" con visitantes, sucursales más vistas, zonas, horarios, fuentes y más. Lee LEEME-ANALITICA.txt.
+- Nuevos permisos: analytics.view (ver) y analytics.manage (configurar/borrar; Dueño y Programador).

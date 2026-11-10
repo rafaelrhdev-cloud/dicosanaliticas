@@ -1,0 +1,34 @@
+MENSAJES DE WHATSAPP CON RESPALDO Y SEGUIMIENTO
+================================================
+
+QUÉ HACE
+Cuando alguien toca cualquier botón de WhatsApp de la página (botón flotante, Empresas, página de cada sucursal),
+primero ve un formulario corto: nombre (opcional), teléfono (10 dígitos) y mensaje.
+Al continuar:
+  1. Se guarda el mensaje y el teléfono (panel > menú «Mensajes»).
+  2. Se manda un respaldo por correo.
+  3. Se abre WhatsApp con el mensaje ya escrito.
+Siempre existe la salida «Abrir WhatsApp sin dejar mis datos». Si algo falla, WhatsApp se abre igual.
+
+A QUÉ CORREO LLEGA
+Archivo data/mail-config.php, línea 'wa_backup_to' (varios correos separados por coma).
+Si no existe, usa 'notify_to'. Requiere la misma contraseña de aplicación de Gmail que ya usan las solicitudes de empleo.
+Mientras el correo no esté configurado, los mensajes se guardan igual en el panel y se marcan «respaldo pendiente».
+
+MENÚ «MENSAJES» (para quien tenga permiso de Contacto)
+- Lista con nombre, teléfono, sucursal, mensaje y fecha.
+- Botones «Responder por WhatsApp» y «Llamar».
+- Estado: Nuevo / En seguimiento / Atendido, y notas internas.
+- Buscador, filtros por estado y descarga a Excel. El menú muestra cuántos Nuevos hay.
+- Lo ven y atienden los perfiles con permiso de Contacto (Marketing y Solo lectura solo consultan).
+
+COTIZACIONES POR SUCURSAL (sección «Para tu negocio»)
+- Cuando hay 2 o más sucursales activas, junto al botón de cotización aparece «¿Cuál sucursal te queda más cerca?» (opcional).
+  Si ya se conoce su ubicación o código postal, viene elegida (puede cambiarla).
+- La cotización sigue yendo al mismo WhatsApp y al mismo correo de respaldo; la sucursal solo queda anotada
+  (en el correo, en el menú Mensajes con la etiqueta «Cotización» y en el Excel).
+
+IMPORTANTE
+Esto guarda el PRIMER mensaje de cada persona. Lo que se conteste después dentro de WhatsApp no se puede leer desde la página.
+Para no perder el historial: número y chip a nombre de la empresa, WhatsApp vinculado a la computadora del dueño
+(«Dispositivos vinculados») y respaldo de WhatsApp en Google Drive. Se recomienda pasarlo a WhatsApp Business (gratis, mismo número).
