@@ -1,0 +1,15 @@
+[
+    {
+        "id": "u-6b49e3b504",
+        "username": "admin",
+        "name": "Programador",
+        "email": "",
+        "role": "dev",
+        "active": true,
+        "notify": false,
+        "must_change": false,
+        "password_hash": "$2y$10$Rv1gl2D0GrSip7XAHDjW/O.eg6i3v0MIUd.IasRjwvu2BMg..CZyO",
+        "created_at": "2026-11-09 17:17:35",
+        "last_login": "2026-11-10 19:55:42"
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "enabled": true,
+    "geo_lookup": true,
+    "exclude_staff": false,
+    "respect_dnt": true,
+    "retention_days": 400,
+    "ignore_ips": []
+}

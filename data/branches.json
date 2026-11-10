@@ -1,0 +1,62 @@
+[
+    {
+        "id": "b-central",
+        "code": "central",
+        "name": "Central de mayoreo — Santa Cruz",
+        "address": "Eje 6 Poniente 5, Col. Camino a Santa Cruz Nieto, San Juan del Río, Qro., CP 76807",
+        "phone": "01 (427) 264-0077",
+        "hours": "Lun–Sáb 6:00–17:00 · Dom 6:00–14:00",
+        "lat": 20.401378,
+        "lng": -99.977958,
+        "is_main": true,
+        "active": true
+    },
+    {
+        "id": "b-57ae426f4b",
+        "code": "pedregoso",
+        "name": "pedregoso primera sección",
+        "address": "pedregoso",
+        "phone": "444444444",
+        "hours": "1:00 2:000",
+        "lat": 20.400573,
+        "lng": -99.977786,
+        "is_main": false,
+        "active": false
+    },
+    {
+        "id": "b-b4ea35310d",
+        "code": "universidad",
+        "name": "sucursal universidad",
+        "address": "av. universidad",
+        "phone": "111111",
+        "hours": "2:00 3:00",
+        "lat": 20.390488,
+        "lng": -99.970355,
+        "is_main": false,
+        "active": true
+    },
+    {
+        "id": "b-bc34b3ae04",
+        "code": "las-aguilas",
+        "name": "sucursal las aguilas",
+        "address": "aguilas",
+        "phone": "4444444",
+        "hours": "3:00 4:000",
+        "lat": 20.375722,
+        "lng": -99.948195,
+        "is_main": false,
+        "active": true
+    },
+    {
+        "id": "b-645b8e170e",
+        "code": "nogales",
+        "name": "sucursal los nogales",
+        "address": "nogales",
+        "phone": "6666",
+        "hours": "5:00 6:00",
+        "lat": 20.415326,
+        "lng": -100.001069,
+        "is_main": false,
+        "active": true
+    }
+]
